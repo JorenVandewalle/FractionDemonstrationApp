@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractionDemonstrationApp", "FractionDemonstrationApp\FractionDemonstrationApp.csproj", "{9CABDE3A-4F51-4475-93BF-51C5AB5DF8C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractionLibrary", "FractionLibrary\FractionLibrary.csproj", "{10C90523-B45C-48CD-9B2B-B54F440F52F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfFractionCalculator", "WpfFractionCalculator\WpfFractionCalculator.csproj", "{02769B69-D533-4B7B-AD28-028B0CC98EF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFractionLibrary", "TestFractionLibrary\TestFractionLibrary.csproj", "{C6DF4F8B-814C-491D-8742-8B19206B2BDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CABDE3A-4F51-4475-93BF-51C5AB5DF8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CABDE3A-4F51-4475-93BF-51C5AB5DF8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CABDE3A-4F51-4475-93BF-51C5AB5DF8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CABDE3A-4F51-4475-93BF-51C5AB5DF8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C90523-B45C-48CD-9B2B-B54F440F52F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C90523-B45C-48CD-9B2B-B54F440F52F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C90523-B45C-48CD-9B2B-B54F440F52F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C90523-B45C-48CD-9B2B-B54F440F52F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02769B69-D533-4B7B-AD28-028B0CC98EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02769B69-D533-4B7B-AD28-028B0CC98EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02769B69-D533-4B7B-AD28-028B0CC98EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02769B69-D533-4B7B-AD28-028B0CC98EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6DF4F8B-814C-491D-8742-8B19206B2BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6DF4F8B-814C-491D-8742-8B19206B2BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6DF4F8B-814C-491D-8742-8B19206B2BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6DF4F8B-814C-491D-8742-8B19206B2BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24D16073-A151-47ED-BABE-BED03CD1A760}
+	EndGlobalSection
+EndGlobal
