@@ -34,9 +34,18 @@ namespace WpfFractionCalculator
             mainWindow.Show();
         }
 
-        private void Github_Click(object sender, RoutedEventArgs e)
+        private void Github_Navigate(object sender, RequestNavigateEventArgs e)
         {
-            
+            static void OpenLink(string url)
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
+            OpenLink(e.Uri.AbsoluteUri);
         }
     }
 }

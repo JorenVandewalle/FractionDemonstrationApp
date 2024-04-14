@@ -70,7 +70,6 @@
                 int dividedNumerator = Numerator * right.Denominator;
                 int dividedDenominator = Denominator * right.Numerator;
                 return new Fraction(dividedNumerator, dividedDenominator);
-            
         }
 
         public Fraction Reciprocal()
@@ -94,7 +93,6 @@
                     b = a % b;
                     a = temp;
                 }
-
                 return a;
             }
 
@@ -109,7 +107,6 @@
             }
 
             return new Fraction(simplifiedNumerator, simplifiedDenominator);
-
         }
 
         public double Result()
