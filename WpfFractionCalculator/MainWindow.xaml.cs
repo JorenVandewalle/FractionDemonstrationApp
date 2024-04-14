@@ -22,7 +22,6 @@ namespace WpfFractionCalculator
         {
             InitializeComponent();
 
-            // Hook up the TextChanged event handlers for the text boxes
             leftNumerator.TextChanged += Fraction_TextChanged;
             leftDenominater.TextChanged += Fraction_TextChanged;
             rightNumerator.TextChanged += Fraction_TextChanged;
@@ -33,7 +32,6 @@ namespace WpfFractionCalculator
 
         private void Fraction_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Call the method to recalculate the result whenever any of the text boxes change
             giveValue();
             giveSpecialValue();
         }
@@ -111,8 +109,12 @@ namespace WpfFractionCalculator
             if (!string.IsNullOrEmpty(leftNumerator.Text) && !string.IsNullOrEmpty(leftDenominater.Text) &&
             !string.IsNullOrEmpty(rightNumerator.Text) && !string.IsNullOrEmpty(rightDenominater.Text))
             {
+                if (!int.TryParse(leftNumerator.Text, out int _) || !int.TryParse(leftDenominater.Text, out int _)) return;
+
                 leftFraction.Numerator = int.Parse(leftNumerator.Text);
                 leftFraction.Denominator = int.Parse(leftDenominater.Text);
+
+                if (!int.TryParse(rightDenominater.Text, out int _) || !int.TryParse(rightNumerator.Text, out int _)) return;   
 
                 rightFraction.Numerator = int.Parse(rightNumerator.Text);
                 rightFraction.Denominator = int.Parse(rightDenominater.Text);
@@ -166,6 +168,8 @@ namespace WpfFractionCalculator
         {
             if (!string.IsNullOrEmpty(specialNumerator.Text) && !string.IsNullOrEmpty(specialDenominater.Text))
             {
+                if (!int.TryParse(specialNumerator.Text, out int _) || !int.TryParse(specialDenominater.Text, out int _)) return;
+
                 specialFraction.Numerator = int.Parse(specialNumerator.Text);
                 specialFraction.Denominator = int.Parse(specialDenominater.Text);
 
