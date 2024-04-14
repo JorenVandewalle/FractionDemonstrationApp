@@ -121,13 +121,13 @@ namespace WpfFractionCalculator
 
 
 
-                if (leftDenominater.Text == "0")
+                if (leftDenominater.Text == "0" || leftDenominater.Text == "-0")
                 {
                     leftDenominater.Text = "1";
                     MessageBox.Show("Denominator can't be 0! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                if (rightDenominater.Text == "0")
+                if (rightDenominater.Text == "0" || rightDenominater.Text == "-0")
                 {
                     rightDenominater.Text = "1";
                     MessageBox.Show("Denominator can't be 0! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -149,7 +149,7 @@ namespace WpfFractionCalculator
                 }
                 if (operation.Text == "/")
                 {
-                    if (rightNumerator.Text == "0")
+                    if (rightNumerator.Text == "0" || rightNumerator.Text == "-0")
                     {
                         rightNumerator.Text = "1";
                         MessageBox.Show("Cannot divide by zero! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
