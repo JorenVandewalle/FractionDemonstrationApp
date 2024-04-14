@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FractionLibrary;
+
 
 namespace WpfFractionCalculator
 {
@@ -19,6 +21,75 @@ namespace WpfFractionCalculator
         public MainWindow()
         {
             InitializeComponent();
+
+            // Hook up the TextChanged event handlers for the text boxes
+            leftNumerator.TextChanged += Fraction_TextChanged;
+            leftDenominater.TextChanged += Fraction_TextChanged;
+            rightNumerator.TextChanged += Fraction_TextChanged;
+            rightDenominater.TextChanged += Fraction_TextChanged;
+            specialNumerator.TextChanged += Fraction_TextChanged;
+            specialDenominater.TextChanged += Fraction_TextChanged;
+        }
+
+        private void Fraction_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Call the method to recalculate the result whenever any of the text boxes change
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            operation.Text = "+";
+            fullRows.Visibility = Visibility.Visible;
+            specialRows.Visibility = Visibility.Hidden;
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Subtract_Click(object sender, RoutedEventArgs e)
+        {
+            operation.Text = "-";
+            fullRows.Visibility = Visibility.Visible;
+            specialRows.Visibility = Visibility.Hidden;
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Multiply_Click(object sender, RoutedEventArgs e)
+        {
+            operation.Text = "*";
+            fullRows.Visibility = Visibility.Visible;
+            specialRows.Visibility = Visibility.Hidden;
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Divide_Click(object sender, RoutedEventArgs e)
+        {
+            operation.Text = "/";
+            fullRows.Visibility = Visibility.Visible;
+            specialRows.Visibility = Visibility.Hidden;
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Reciprocal_Click(object sender, RoutedEventArgs e)
+        {
+            operationSpecial.Text = "1/F";
+            fullRows.Visibility = Visibility.Hidden;
+            specialRows.Visibility = Visibility.Visible;
+            giveValue();
+            giveSpecialValue();
+        }
+
+        private void Invert_Click(object sender, RoutedEventArgs e)
+        {
+            operationSpecial.Text = "-F";
+            fullRows.Visibility = Visibility.Hidden;
+            specialRows.Visibility = Visibility.Visible;
+            giveValue();
+            giveSpecialValue();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -26,6 +97,91 @@ namespace WpfFractionCalculator
             AboutWindow aboutWindow = new AboutWindow();
             this.Hide();
             aboutWindow.Show();
+        }
+
+        private Fraction leftFraction = new Fraction();
+        private Fraction rightFraction = new Fraction();
+        private Fraction resultFraction = new Fraction();
+
+        private Fraction specialFraction = new Fraction();
+        private Fraction resultSpecialFraction = new Fraction();
+
+        public void giveValue()
+        {
+            if (!string.IsNullOrEmpty(leftNumerator.Text) && !string.IsNullOrEmpty(leftDenominater.Text) &&
+            !string.IsNullOrEmpty(rightNumerator.Text) && !string.IsNullOrEmpty(rightDenominater.Text))
+            {
+                leftFraction.Numerator = int.Parse(leftNumerator.Text);
+                leftFraction.Denominator = int.Parse(leftDenominater.Text);
+
+                rightFraction.Numerator = int.Parse(rightNumerator.Text);
+                rightFraction.Denominator = int.Parse(rightDenominater.Text);
+
+
+
+                if (leftDenominater.Text == "0")
+                {
+                    leftDenominater.Text = "1";
+                    MessageBox.Show("Denominator can't be 0! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (rightDenominater.Text == "0")
+                {
+                    rightDenominater.Text = "1";
+                    MessageBox.Show("Denominator can't be 0! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (operation.Text == "+")
+                {
+                    resultFraction = leftFraction.Add(rightFraction).Simplify();
+                }
+                if (operation.Text == "-")
+                {
+                    resultFraction = leftFraction.Subtract(rightFraction).Simplify();
+
+                }
+                if (operation.Text == "*")
+                {
+                    resultFraction = leftFraction.Multiply(rightFraction).Simplify();
+
+                }
+                if (operation.Text == "/")
+                {
+                    if (rightNumerator.Text == "0")
+                    {
+                        rightNumerator.Text = "1";
+                        MessageBox.Show("Cannot divide by zero! It has changed to 1.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    resultFraction = leftFraction.Divide(rightFraction).Simplify();
+
+                }
+                resultNumerator.Text = resultFraction.Numerator.ToString();
+                resultDenominater.Text = resultFraction.Denominator.ToString();
+
+                resultDouble.Text = resultFraction.Result().ToString();
+            }
+        }
+
+        public void giveSpecialValue()
+        {
+            if (!string.IsNullOrEmpty(specialNumerator.Text) && !string.IsNullOrEmpty(specialDenominater.Text))
+            {
+                specialFraction.Numerator = int.Parse(specialNumerator.Text);
+                specialFraction.Denominator = int.Parse(specialDenominater.Text);
+
+
+                if (operationSpecial.Text == "1/F")
+                {
+                    resultSpecialFraction = specialFraction.Reciprocal();
+                }
+                if (operationSpecial.Text == "-F")
+                {
+                    resultSpecialFraction = specialFraction.Invert();
+                }
+
+                resultSpecialNumerator.Text = resultSpecialFraction.Numerator.ToString();
+                resultSpecialDenominater.Text = resultSpecialFraction.Denominator.ToString();
+            }
         }
     }
 }

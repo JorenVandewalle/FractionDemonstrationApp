@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FractionLibrary\FractionLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

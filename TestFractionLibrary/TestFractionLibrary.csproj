@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FractionLibrary\FractionLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

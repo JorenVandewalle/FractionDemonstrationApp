@@ -1,6 +1,4 @@
-﻿using FractionLibrary;
-
-namespace FractionLibrary
+﻿namespace FractionLibrary
 {
     public class Fraction
     { 
@@ -16,13 +14,14 @@ namespace FractionLibrary
         public int Denominator
         {
             get { return denominator; }
-            set { if (value == 0)
+            set { if (value != 0)
                 {
-                    denominator = 1;
+                    denominator = value;
                 }
                 else
                 {
-                    denominator = value;
+                    denominator = 1;
+                    Console.WriteLine("Denominator error! It is changed to 1.");
                 } ; }
         }
 
@@ -32,11 +31,10 @@ namespace FractionLibrary
             Denominator = 1;
         }
          
-        public Fraction(int Numerator, int Denominator)
+        public Fraction(int numerator, int denominator)
         {
-            this.Numerator = Numerator;
-            if (Denominator != 0)
-                this.Denominator = Denominator;
+            Numerator= numerator;
+            Denominator = denominator;
         }
 
         public Fraction Add(Fraction right)
@@ -62,9 +60,17 @@ namespace FractionLibrary
 
         public Fraction Divide(Fraction right)
         {
-            int dividedNumerator = Numerator * right.Denominator;
-            int dividedDenominator = Denominator * right.Numerator;
-            return new Fraction(dividedNumerator, dividedDenominator);
+            if (right.Numerator == 0)
+            {
+                right.Numerator = 1;
+                Console.WriteLine("Numerator cant be 0! It is now 1.");
+            }
+            
+            
+                int dividedNumerator = Numerator * right.Denominator;
+                int dividedDenominator = Denominator * right.Numerator;
+                return new Fraction(dividedNumerator, dividedDenominator);
+            
         }
 
         public Fraction Reciprocal()

@@ -34,11 +34,11 @@
         <TextBlock Text="Study: Electronica-ICT" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="3" Foreground="Wheat" Margin="10"/>
 
         <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="3" Margin="10" Padding="10" Foreground="Wheat" FontSize="18"
-                   Text="My name is Joren and I study at Vives in Electronica-ICT." />
+                   ><Run Text="I'm Joren, studying Electronica-ICT at Vives. "/><LineBreak/><Run Text="Press the button to select your operation, fill the boxes, and get results "/><LineBreak/><Run Text="automatically."/></TextBlock>
 
         <Button Grid.Column="4" Grid.Row="5"  Margin="10" Background="#76ABAE" Content="Github" Foreground="#31363F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Github_Click" />
 
         <Label Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="9" Background="#222831" Foreground="#a5b9d4" HorizontalContentAlignment="Center"/>
-        <Button Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Margin="10" Padding="auto" Background="#76ABAE" Content="FRACTION CALCULATOR" Foreground="#31363F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Github_Click"/>
+        <Button Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Margin="10" Padding="auto" Background="#76ABAE" Content="FRACTION CALCULATOR" Foreground="#31363F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Button_Click"/>
     </Grid>
 </Window>

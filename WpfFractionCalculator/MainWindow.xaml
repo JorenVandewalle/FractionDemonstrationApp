@@ -10,48 +10,103 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Label Content="FRACTION CALCULATOR" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="9" Background="#222831" Foreground="Wheat" HorizontalContentAlignment="Center"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" FlowDirection="LeftToRight" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"> 
-        <Button Name="Add" Content="+" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="5" MinWidth="50" Width="20"/>
-            <Button Name="Subtract" Content="-" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20"/>
-            <Button Name="Multiply" Content="*" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50"  Width="20"/>
-            <Button Name="Divide" Content="/" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20"/>
-            <Button Name="Reciprocal" Content="1/F" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20"/>
-            <Button Name="Invert" Content="-F" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20"/>
+        <StackPanel x:Name="operationButtons" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" FlowDirection="LeftToRight" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Name="Add" Content="+" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="5" MinWidth="50" Width="20" Click="Add_Click"/>
+            <Button Name="Subtract" Content="-" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20" Click="Subtract_Click"/>
+            <Button Name="Multiply" Content="*" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50"  Width="20" Click="Multiply_Click"/>
+            <Button Name="Divide" Content="/" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20" Click="Divide_Click"/>
+            <Button Name="Reciprocal" Content="1/F" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20" Click="Reciprocal_Click"/>
+            <Button Name="Invert" Content="-F" Background="#76ABAE" Foreground="#31363F" Margin="10" Padding="10" MinWidth="50" Width="20" Click="Invert_Click"/>
         </StackPanel>
 
-        <TextBox Grid.Column="2" Grid.Row="2" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
-        <TextBox Grid.Column="4" Grid.Row="2" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
-        <TextBox Grid.Column="6" Grid.Row="2" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="3" x:Name="fullRows" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="2" Grid.Row="3" Background="Wheat" Height="7"/>
-        <TextBlock Grid.Column="3" Grid.Row="3" Text="+" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <Border Grid.Column="4" Grid.Row="3" Background="Wheat" Height="7"/>
-        <TextBlock Grid.Column="5" Grid.Row="3" Text="=" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <Border Grid.Column="6" Grid.Row="3" Background="Wheat" Height="7"/>
+                <StackPanel Grid.Column="0" >
+                    <TextBox x:Name="leftNumerator" Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                    <Border Background="Wheat" Height="7"/>
+                    <TextBox  x:Name="leftDenominater" Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                </StackPanel>
 
-        <TextBox Grid.Column="2" Grid.Row="4" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
-        <TextBox Grid.Column="4" Grid.Row="4" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
-        <TextBox Grid.Column="6" Grid.Row="4" Margin="10" Padding="20" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                <TextBlock x:Name="operation" Grid.Column="1"  Text="+" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+                <StackPanel Grid.Column="2" >
+                    <TextBox x:Name="rightNumerator"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                    <Border Background="Wheat" Height="7"/>
+                    <TextBox x:Name="rightDenominater"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="3"  Text="=" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+                <StackPanel Grid.Column="4" >
+                    <TextBox x:Name="resultNumerator"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text="" IsReadOnly="True"/>
+                    <Border Background="Wheat" Height="7"/>
+                    <TextBox x:Name="resultDenominater"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text="" IsReadOnly="True"/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="5"  Text="=" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+                <StackPanel Grid.Column="6" VerticalAlignment="Center">
+                    <TextBox x:Name="resultDouble" Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text="" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="3" x:Name="specialRows" Margin="10" Visibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" >
+                    <TextBox x:Name="specialNumerator"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                    <Border Background="Wheat" Height="7"/>
+                    <TextBox x:Name="specialDenominater"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" Text=""/>
+                </StackPanel>
+
+                <TextBlock x:Name="operationSpecial" Grid.Column="1"  Text="+" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+                <TextBlock Grid.Column="2"  Text="=" Foreground="Wheat" TextAlignment="Center" Padding="3" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+                <StackPanel Grid.Column="3" >
+                    <TextBox x:Name="resultSpecialNumerator"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" IsReadOnly="True"/>
+                    <Border Background="Wheat" Height="7"/>
+                    <TextBox x:Name="resultSpecialDenominater"  Margin="10" Padding="30" Background="#abc3c4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#31363F" TextAlignment="Center" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
 
         <Label Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="9" Background="#222831" Foreground="#EEEEEE" HorizontalContentAlignment="Center"/>
-        <Button Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Margin="10" Padding="auto" Background="#76ABAE" Content="ABOUT" Foreground="#31363F" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Click="Button_Click"/>
+        <Button Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Margin="10" Padding="auto" Background="#76ABAE" Content="ABOUT" Foreground="#31363F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Button_Click"/>
     </Grid>
 </Window>
