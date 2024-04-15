@@ -7,8 +7,8 @@ namespace FractionDemonstrationApp
         static void Main(string[] args)
         {
             Fraction fraction = new Fraction();
-            Fraction leftfraction = new Fraction(0,10);
-            Fraction rightfraction = new Fraction(0,10);
+            Fraction leftfraction = new Fraction(1,2);
+            Fraction rightfraction = new Fraction(3,4);
 
             Fraction add = leftfraction.Add(rightfraction);
             Fraction subtract = leftfraction.Subtract(rightfraction);
